@@ -16,9 +16,9 @@ app.get("/", (req, res) => {
 app.get("/trips", (req, res) => {
   let keywords = req.query.keywords;
 
-  if (keywords === undefined) {
-    return res.status(400).json({
-      message: "Please send keywords parameter in the URL endpoint",
+  if (!keywords) {
+    return res.json({
+      data: trips,
     });
   }
 
